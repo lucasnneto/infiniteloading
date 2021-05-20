@@ -27,9 +27,6 @@ export default {
   setup(_, attrs) {
     const axios = ax.create({
       baseURL: "https://api.github.com/users/vuejs/repos",
-      headers: {
-        Authorization: "token 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",
-      },
     });
     const params = reactive({
       page: 1,
@@ -72,7 +69,9 @@ export default {
           .get("", {
             params: {
               page: params.page,
-              per_page: 7,
+              per_page: 10,
+              client_id: "2bfb64cd0b6873041246",
+              client_secret: "55d4978a85ce91ba7c9bf687872b7dbc5a0a18e3",
             },
           })
           .then((res) => {
